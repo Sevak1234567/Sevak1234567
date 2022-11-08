@@ -2,7 +2,7 @@ function generateMatrix(len, gr, grEat, pred, fire, aqua) {
     let matrix = [];
     for (let i = 0; i < len; i++) {
         matrix.push([])
-        for (let j = 0; j < len; j++) {
+        for (let j = 0; j < len; j++) { 
             matrix[i].push(0)
         }
     }
@@ -65,19 +65,19 @@ function setup() {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
                 let gr = new Grass(x, y);
-                grassArr.push(gr)
+                grassArr.push(gr);
             } else if (matrix[y][x] == 2) {
                 let grEat = new GrassEater(x, y);
-                grassEaterArr.push(grEat)
+                grassEaterArr.push(grEat);
             }else if (matrix[y][x] == 3) {
                 let pred = new Predator(x, y);
-                predatorArr.push(pred)
+                predatorArr.push(pred);
             }else if (matrix[y][x] == 4) {
                 let fire = new Fire(x, y);
-                fireArr.push(fire)
+                fireArr.push(fire);
             }else if (matrix[y][x] == 5) {
                 let aqua = new Aqua(x, y);
-                aquaArr.push(aqua)
+                aquaArr.push(aqua);
             }                 
         }
     }
@@ -111,22 +111,22 @@ function draw() {
 
 
     for (let i in grassArr) {
-        grassArr[i].mul()
+        grassArr[i].mul();
     }
 
     for (let i in grassEaterArr) {
-        grassEaterArr[i].eat()
+        grassEaterArr[i].eat();
     }
 
     for (let i in predatorArr) {
-        predatorArr[i].eat()
+        predatorArr[i].eat();
     }
     
     for (let i in fireArr) {
-        fireArr[i].eat()
+        fireArr[i].eat();
     }
 
     for (let i in aquaArr) {
-        aquaArr[i].mul()
+        aquaArr[i].mul();
     }
 }

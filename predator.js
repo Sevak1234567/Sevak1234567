@@ -19,7 +19,7 @@ class Predator {
 
     }
     chooseCell(character) {
-        this.getNewCoordinates()
+        this.getNewCoordinates();
         var found = [];
         for (var i in this.directions) {
             var x = this.directions[i][0];
@@ -56,19 +56,19 @@ class Predator {
         if (newCell && this.energy >= 0) {
             var newX = newCell[0];
             var newY = newCell[1];
-            matrix[newY][newX] = matrix[this.y][this.x]
+            matrix[newY][newX] = matrix[this.y][this.x];
             matrix[this.y][this.x] = 0;
-            this.x = newX
-            this.y = newY
+            this.x = newX;
+            this.y = newY;
             }else if (newCell && this.energy >= 0) {
                 var newX = newCell[0];
                 var newY = newCell[1];
-                matrix[newY][newX] = matrix[this.y][this.x]
+                matrix[newY][newX] = matrix[this.y][this.x];
                 matrix[this.y][this.x] = 0;
-                this.x = newX
-                this.y = newY
+                this.x = newX;
+                this.y = newY;
             }else{
-                this.die()
+                this.die();
             }
         }
     
@@ -79,12 +79,12 @@ class Predator {
             this.energy++
             var newX = newCell[0];
             var newY = newCell[1];
-            matrix[newY][newX] = matrix[this.y][this.x]
+            matrix[newY][newX] = matrix[this.y][this.x];
             matrix[this.y][this.x] = 0;
-            this.x = newX
-            this.y = newY
+            this.x = newX;
+            this.y = newY;
             if (this.energy > 15) {
-                this.mul()
+                this.mul();
             }
             for (var i in grassEaterArr) {
                 if (newX == grassEaterArr[i].x && newY == grassEaterArr[i].y) {
@@ -94,7 +94,7 @@ class Predator {
             }
 
         } else {
-            this.move()
+            this.move();
         }
     }
     die() {

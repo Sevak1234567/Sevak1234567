@@ -5,8 +5,8 @@ class Fire {
         this.energy = 20;
         this.directions = [];
     }
-    getNewCoordinates(){
-              this.directions = [
+    getNewCoordinates() {
+        this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
             [this.x + 1, this.y - 1],
@@ -18,7 +18,7 @@ class Fire {
         ];
     }
     chooseCell(char) {
-      this.getNewCoordinates();
+        this.getNewCoordinates();
         let result = [];
         for (let i = 0; i < this.directions.length; i++) {
             let x = this.directions[i][0];
@@ -33,7 +33,7 @@ class Fire {
     }
     mul() {
         let found = this.chooseCell(0);
-        let exact = random(found)
+        let exact = random(found);
         if (exact && this.energy > 8) {
             let x = exact[0];
             let y = exact[1];
@@ -42,56 +42,56 @@ class Fire {
             fireArr.push(fire);
             this.energy = 20;
         } else {
-            this.mul()
+            this.mul();
         }
     }
     eat(){
         let found = this.chooseCell(1);
-        let exact = random(found)
+        let exact = random(found);
         if (exact){
             this.energy +=1;
             let x = exact[0];
             let y = exact[1];
             for (let i = 0; i < grassArr.length; i++) {
                 if( grassArr[i].x == x && grassArr[i].y == y ){
-                    grassArr.splice(i, 1)
+                    grassArr.splice(i, 1);
                 }
             }
-            matrix[y][x] = 3
-            matrix[this.y][this.x] = 0
+            matrix[y][x] = 3;
+            matrix[this.y][this.x] = 0;
             this.x = x;
-            this.y = y
+            this.y = y;
             if(this.energy > 100){
-                this.mul()
+                this.mul();
             }
         }
     }
     move(){
         this.energy--
         let found = this.chooseCell(0);
-        let exact = random(found)
+        let exact = random(found);
         if (exact){
             let x = exact[0];
             let y = exact[1];
-            matrix[y][x] = 3
-            matrix[this.y][this.x] = 0
+            matrix[y][x] = 3;
+            matrix[this.y][this.x] = 0;
             this.x = x;
             this.y = y;
-            this.energy -= 0
+            this.energy -= 0;
             if(this.energy < 0){
-                this.die()
+                this.die();
             }
         }else {
-            this.energy -= 10
+            this.energy -= 10;
             if(this.energy < 0){
-                this.die()
+                this.die();
             }
         }
     }
     die(){
             for (let i = 0; i < fireArr.length; i++) {
                 if( fireArr[i].x == this.x && fireArr[i].y == this.y ){
-                    fireArr.splice(i, 1)
+                    fireArr.splice(i, 1);
                 }
             }
             matrix[this.y][this.x] = 0;
